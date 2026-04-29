@@ -468,6 +468,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: tinyShip1_16
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 22
+        width: 38
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 706a9f4ac67e440e1beaa8ab9a9cf22a
+      internalID: 1636856987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -490,6 +512,7 @@ TextureImporter:
       tinyShip1_13: 1941532908
       tinyShip1_14: -1299814408
       tinyShip1_15: 402261666
+      tinyShip1_16: 1636856987
       tinyShip1_2: -43259075
       tinyShip1_3: -1309847379
       tinyShip1_4: 1271119756

@@ -3,17 +3,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] BulletMng bulletmng;
     [SerializeField] float speed;   //직렬화
     Vector2 moveDir;
     Rigidbody2D rigidbody2D;    // 멤버변수
-
-    [SerializeField] float attackTime;
-    float curAttackTime;
+    Animator animator;
 
     void Start()    // 멤버함수
     {
+        animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+
     }
 
     void Update()
@@ -33,15 +32,17 @@ public class Player : MonoBehaviour
         float ver = Input.GetAxis("Vertical");
         moveDir.x = hor;
         moveDir.y = ver;
+
+        animator.SetFloat("move", Mathf.Abs(hor) + Mathf.Abs(ver));
     }
 
     void Attack()
     {
-        curAttackTime += Time.deltaTime;
-        if (Input.GetKey(KeyCode.Space) && curAttackTime >= attackTime)
-        {
-            curAttackTime = 0;
-            bulletmng.CreateBullet(transform.position);
-        }
+        animator.SetBool("isAttack", Input.GetKey(KeyCode.Space));
+    }
+
+    public void FireBullet()
+    {
+        BulletMng.ins.CreateBullet(transform.position);
     }
 }

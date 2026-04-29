@@ -3,7 +3,30 @@ using UnityEngine;
 
 public class BulletMng : MonoBehaviour
 {
-    int[] n = new int[10];
+    // 싱글톤 패턴(Singleton)
+    // 프로그램에서 객체가 무조건 1개, 언제 어디서든 전역으로 접근 가능 O
+
+    static BulletMng instance;
+    public static BulletMng ins
+    {
+        // getter, setter
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindAnyObjectByType<BulletMng>();
+                if (instance == null)
+                {
+                    GameObject obj = new GameObject("BulletMng");
+                    instance = obj.AddComponent<BulletMng>();
+                }
+            }
+            return instance;
+        }
+    }
+
+    // 생성자 + 유니티 파일입출력(Resources)
+
     // 오브젝트 풀링(Object pool)
     [SerializeField] List<Bullet> bulletlist;
     [SerializeField] GameObject bulletprefab;
